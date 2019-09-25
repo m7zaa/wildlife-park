@@ -1,7 +1,7 @@
 namespace Park
 {
 
-    class Animal
+    public class Animal
     {
         private string _Species;
         private string _Type;

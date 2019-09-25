@@ -8,18 +8,23 @@ namespace Park
     {
         public static void Main()
         {
-            Animal sloth = new Animal("sloth", "two-toed", 15, 10, "low");
-            Animal tiger = new Animal("tiger", "bengal", 10, 10, "high");
-            Animal bear = new Animal ("bear", "polar", 33, 33, "low");
-            Animal squirrel = new Animal("squirrel", "grey" , 88, 1, "high");
+            // Animal sloth = new Animal("sloth", "two-toed", 15, 10, "low");
+            // Animal tiger = new Animal("tiger", "bengal", 10, 10, "high");
+            // Animal bear = new Animal ("bear", "polar", 33, 33, "low");
+            // Animal squirrel = new Animal("squirrel", "grey" , 88, 1, "high");
+            List<Animal> Animals = new List<Animal>(0);
+            AddAnimal(Animals);
+        }
 
-            List<Animal> Animals = new List<Animal>() {sloth, tiger, bear, squirrel};
+        public static void AddAnimal(List<Animal> Animals)
+            {
             Console.WriteLine("What would you like to do? Add/find");
             string AddFind = Console.ReadLine();
             if (AddFind == "Add" || AddFind == "add")
             {
                 Console.WriteLine("Enter a species:");
                 string speciesInput = Console.ReadLine();
+
                 Console.WriteLine("Enter a type:");
                 string typeInput = Console.ReadLine();
 
@@ -31,18 +36,27 @@ namespace Park
 
                 Console.WriteLine("Enter animal's threat level:");
                 string tempermentInput = Console.ReadLine();
-                Animal newAnimal = new Animal(speciesInput, typeInput, ageInput, captivityInput, tempermentInput);
-                Console.WriteLine(newAnimal.GetAnimalType());
-            }
 
+                Animal newAnimal = new Animal(speciesInput, typeInput, ageInput, captivityInput, tempermentInput);
+                Animals.Add(newAnimal);
+
+                // foreach(Animal item in Animals)
+                // {
+                //     Console.WriteLine(item.species);
+                // }
+
+            } 
+
+            else 
+            {
 
             Console.WriteLine("How would you like to search for animals? Species/Age/Danger-level");
             string searchType = Console.ReadLine();
 
             
             if (searchType == "species")
-            {
-            Console.WriteLine("What species of animal are you looking for a bear, tiger, sloth or squirrel?");
+            { 
+            Console.WriteLine("What species of animal are you looking for?");
             string speciesSearch = Console.ReadLine();
                      
             List<Animal> AnimalsMatchingSearch = new List<Animal>(0);
@@ -60,11 +74,21 @@ namespace Park
                 Console.WriteLine(animal.GetAnimalType());
                 Console.WriteLine(animal.GetAge());
                 Console.WriteLine("This animals threat level is " + animal.GetTemperment() + ".");
+            
+                
+            
                 }
             } 
-            
 
-        }
+            }
+            
+            AddAnimal(Animals);
+
+            }
+            
+            
+            
+        
 
     }
 }
