@@ -19,6 +19,7 @@ namespace Park
 
         }
 
+        //  Animal speciesInput = new Animal(speciesInput, typeInput, ageInput, captivityInput, tempermentInput);
 
     public static string DangerLevel(string level)
     {
@@ -40,16 +41,26 @@ namespace Park
         return _Age;
     }
 
+    public bool FindSpecies(string type)
+    {  
+        return (_Species == type);
+    }
     public string GetSpecies()
     {
         return _Species;
     }
 
-    public bool GetType(string type)
+    public string GetAnimalType()
     {
-        return (_Type == type);
+        return _Type;
     }
     
+    public string GetTemperment()
+    {
+        return _Temperment;
+    } 
+
+
     }
 
 }

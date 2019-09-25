@@ -14,25 +14,54 @@ namespace Park
             Animal squirrel = new Animal("squirrel", "grey" , 88, 1, "high");
 
             List<Animal> Animals = new List<Animal>() {sloth, tiger, bear, squirrel};
+            Console.WriteLine("What would you like to do? Add/find");
+            string AddFind = Console.ReadLine();
+            if (AddFind == "Add" || AddFind == "add")
+            {
+                Console.WriteLine("Enter a species:");
+                string speciesInput = Console.ReadLine();
+                Console.WriteLine("Enter a type:");
+                string typeInput = Console.ReadLine();
 
-            Console.WriteLine("How would you like to search for animals? type/age/danger-level");
+                Console.WriteLine("Enter animal's age:");
+                int ageInput = int.Parse(Console.ReadLine()); 
+
+                Console.WriteLine("Enter animal's time in captivity (years):");
+                int captivityInput = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("Enter animal's threat level:");
+                string tempermentInput = Console.ReadLine();
+                Animal newAnimal = new Animal(speciesInput, typeInput, ageInput, captivityInput, tempermentInput);
+                Console.WriteLine(newAnimal.GetAnimalType());
+            }
+
+
+            Console.WriteLine("How would you like to search for animals? Species/Age/Danger-level");
             string searchType = Console.ReadLine();
 
-             
-                Console.WriteLine("What type of animal are you looking for a bear, tiger, sloth or squirrel?");
-                string typeSearch = Console.ReadLine();
-                    
+            
+            if (searchType == "species")
+            {
+            Console.WriteLine("What species of animal are you looking for a bear, tiger, sloth or squirrel?");
+            string speciesSearch = Console.ReadLine();
+                     
             List<Animal> AnimalsMatchingSearch = new List<Animal>(0);
                     
                 foreach (Animal animal in Animals)
                 {
-                    if (animal.GetType(typeSearch))
+                    if (animal.FindSpecies(speciesSearch))
                     {
                         AnimalsMatchingSearch.Add(animal);
                     }
                 }
-                Console.WriteLine(AnimalsMatchingSearch);
-
+                foreach (Animal animal in AnimalsMatchingSearch)
+                {
+                Console.WriteLine(animal.GetSpecies());
+                Console.WriteLine(animal.GetAnimalType());
+                Console.WriteLine(animal.GetAge());
+                Console.WriteLine("This animals threat level is " + animal.GetTemperment() + ".");
+                }
+            } 
             
 
         }
