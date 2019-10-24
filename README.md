@@ -19,7 +19,7 @@ _Micah Zaayer @ zaayer@protonmail.com_
 
 ## Technologies Used
 
-_JS, CSS, HTML_
+_C#_
 
 ### License
 
